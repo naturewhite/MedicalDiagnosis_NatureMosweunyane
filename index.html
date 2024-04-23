@@ -90,6 +90,10 @@
 	 
 	</div>
 
+    <div style='width:100%; backgroundColor:#000000;' id= "loading">
+	<p style='textAlign:center; position:relative; display:none;'>Retrieving Data...</p>
+	</div>
+	
 	  <div id="content-container">
         <!-- Left section for symptoms list -->
         <div id="left-section">
@@ -111,7 +115,11 @@
     let selectedSymptomIds = [];
     let selectedIssue = '';
 	
+	
+	
+	
     function fetchSymptoms() {
+		
         fetch('http://localhost:8000/api/v1/getSymptoms')
         .then(response => response.json())
         .then(data => {
@@ -152,10 +160,7 @@
                 const submitButton = document.createElement('button');
                 submitButton.textContent = 'Submit';
                 submitButton.addEventListener('click', () => {
-                    if (selectedSymptomIds.length === 0) {
-                        alert('Please select symptoms.');
-                        return;
-                    }
+                    
 					
                     const selectedSymptomIdsStr = selectedSymptomIds.join(',');
 					
@@ -171,7 +176,10 @@
                     } else if (maleCheckbox.checked) {
                       gender = 'male';
                     }
-					
+					if (selectedSymptomIds.length === 0 ||  gender ==='' || age === '') {
+                        alert('Please select symptoms, age and gender');
+                        return;
+                    }
 					
                     const apiUrl = 'http://localhost:8000/api/v1/getDiagnosis?symptomId='+selectedSymptomIds+'&age='+age+'&gender='+gender;
 
@@ -248,9 +256,10 @@
 				 submitButton.addEventListener('click',() =>{
 				 
 				 if(selectedIssue.length==0){
-				 alert('Please Select Symptoms');
+				 alert('Please Select Issue');
 				 return;
 				 }
+				 
 				 
 				
 				 const apiUrl = 'http://localhost:8000/api/v1/getIssue?issueId='+selectedIssue;

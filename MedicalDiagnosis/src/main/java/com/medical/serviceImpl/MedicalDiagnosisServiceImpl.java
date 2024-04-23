@@ -86,7 +86,7 @@ public class MedicalDiagnosisServiceImpl implements MedicalDiagnosisService{
 	public String authentication(){
 		
 		String hash = apiKey +":"+computeHash();
-		System.out.println("Hash: "+ hash);
+		
 		String token ="";
 		if(!hash.isEmpty() || hash != null ) {
         
