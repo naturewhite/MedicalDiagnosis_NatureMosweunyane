@@ -1,0 +1,1106 @@
+{
+	"info": {
+		"_postman_id": "27ba6a48-f9c8-4394-ace5-f3f50dcd46c6",
+		"name": "Medical Diagnosis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19108848"
+	},
+	"item": [
+		{
+			"name": "getBodySymptoms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getBodySymptoms?bodyLocationId=36&genderAge=male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getBodySymptoms"
+					],
+					"query": [
+						{
+							"key": "bodyLocationId",
+							"value": "36"
+						},
+						{
+							"key": "genderAge",
+							"value": "male"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getBodySymptoms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getBodySymptoms?bodyLocationId=36&genderAge=male",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getBodySymptoms"
+							],
+							"query": [
+								{
+									"key": "bodyLocationId",
+									"value": "36"
+								},
+								{
+									"key": "genderAge",
+									"value": "male"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Apr 2024 20:15:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": [\n            {\n                \"ID\": \"10\",\n                \"Name\": \"Abdominal pain\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \" Stomach ache\"\n                ]\n            },\n            {\n                \"ID\": \"44\",\n                \"Name\": \"Nausea\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    22,\n                    15,\n                    31,\n                    16,\n                    36,\n                    17,\n                    47\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"45\",\n                \"Name\": \"Heartburn\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    24,\n                    15,\n                    31,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Pyrosis\"\n                ]\n            },\n            {\n                \"ID\": \"54\",\n                \"Name\": \"Reduced appetite\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    25,\n                    17,\n                    47,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"92\",\n                \"Name\": \"Early satiety\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"101\",\n                \"Name\": \"Vomiting\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    25,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"153\",\n                \"Name\": \"Fast, deepened breathing\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    24,\n                    25,\n                    15,\n                    31,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Fast breathing\",\n                    \"Hyperventilation\"\n                ]\n            },\n            {\n                \"ID\": \"179\",\n                \"Name\": \"Stomach burning\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Burning abdominal pain\",\n                    \"Burning stomach ache\"\n                ]\n            },\n            {\n                \"ID\": \"181\",\n                \"Name\": \"Vomiting blood\",\n                \"HasRedFlag\": \"true\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    25,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            }\n        ]\n    },\n    \"message\": \"Body Locations\",\n    \"status\": 200\n}"
+				},
+				{
+					"name": "getBodySymptoms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getBodySymptoms?bodyLocationId=16&genderAge=girl",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getBodySymptoms"
+							],
+							"query": [
+								{
+									"key": "bodyLocationId",
+									"value": "16"
+								},
+								{
+									"key": "genderAge",
+									"value": "girl",
+									"description": "options female, male,girl & boy"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:13:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": [\n            {\n                \"ID\": \"10\",\n                \"Name\": \"Abdominal pain\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \" Stomach ache\"\n                ]\n            },\n            {\n                \"ID\": \"44\",\n                \"Name\": \"Nausea\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    22,\n                    15,\n                    31,\n                    16,\n                    36,\n                    17,\n                    47\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"45\",\n                \"Name\": \"Heartburn\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    24,\n                    15,\n                    31,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Pyrosis\"\n                ]\n            },\n            {\n                \"ID\": \"92\",\n                \"Name\": \"Early satiety\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"101\",\n                \"Name\": \"Vomiting\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    25,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            },\n            {\n                \"ID\": \"153\",\n                \"Name\": \"Fast, deepened breathing\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    24,\n                    25,\n                    15,\n                    31,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Fast breathing\",\n                    \"Hyperventilation\"\n                ]\n            },\n            {\n                \"ID\": \"179\",\n                \"Name\": \"Stomach burning\",\n                \"HasRedFlag\": \"false\",\n                \"HealthSymptomLocationIDs\": [\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": [\n                    \"Burning abdominal pain\",\n                    \"Burning stomach ache\"\n                ]\n            },\n            {\n                \"ID\": \"181\",\n                \"Name\": \"Vomiting blood\",\n                \"HasRedFlag\": \"true\",\n                \"HealthSymptomLocationIDs\": [\n                    6,\n                    25,\n                    16,\n                    36\n                ],\n                \"ProfName\": \"\",\n                \"Synonyms\": []\n            }\n        ]\n    },\n    \"message\": \"Body Locations\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getSymptoms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getSymptoms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getSymptoms"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getSymptoms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getSymptoms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getSymptoms"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 18 Apr 2024 06:44:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": [\n            {\n                \"ID\": 10,\n                \"Name\": \"Abdominal pain\"\n            },\n            {\n                \"ID\": 238,\n                \"Name\": \"Anxiety\"\n            },\n            {\n                \"ID\": 104,\n                \"Name\": \"Back pain\"\n            },\n            {\n                \"ID\": 75,\n                \"Name\": \"Burning eyes\"\n            },\n            {\n                \"ID\": 46,\n                \"Name\": \"Burning in the throat\"\n            },\n            {\n                \"ID\": 170,\n                \"Name\": \"Cheek swelling\"\n            },\n            {\n                \"ID\": 17,\n                \"Name\": \"Chest pain\"\n            },\n            {\n                \"ID\": 31,\n                \"Name\": \"Chest tightness\"\n            },\n            {\n                \"ID\": 175,\n                \"Name\": \"Chills\"\n            },\n            {\n                \"ID\": 139,\n                \"Name\": \"Cold sweats\"\n            },\n            {\n                \"ID\": 15,\n                \"Name\": \"Cough\"\n            },\n            {\n                \"ID\": 207,\n                \"Name\": \"Dizziness\"\n            },\n            {\n                \"ID\": 244,\n                \"Name\": \"Drooping eyelid\"\n            },\n            {\n                \"ID\": 273,\n                \"Name\": \"Dry eyes\"\n            },\n            {\n                \"ID\": 87,\n                \"Name\": \"Earache\"\n            },\n            {\n                \"ID\": 92,\n                \"Name\": \"Early satiety\"\n            },\n            {\n                \"ID\": 287,\n                \"Name\": \"Eye pain\"\n            },\n            {\n                \"ID\": 33,\n                \"Name\": \"Eye redness\"\n            },\n            {\n                \"ID\": 153,\n                \"Name\": \"Fast, deepened breathing\"\n            },\n            {\n                \"ID\": 76,\n                \"Name\": \"Feeling of foreign body in the eye\"\n            },\n            {\n                \"ID\": 11,\n                \"Name\": \"Fever\"\n            },\n            {\n                \"ID\": 57,\n                \"Name\": \"Going black before the eyes\"\n            },\n            {\n                \"ID\": 9,\n                \"Name\": \"Headache\"\n            },\n            {\n                \"ID\": 45,\n                \"Name\": \"Heartburn\"\n            },\n            {\n                \"ID\": 122,\n                \"Name\": \"Hiccups\"\n            },\n            {\n                \"ID\": 149,\n                \"Name\": \"Hot flushes\"\n            },\n            {\n                \"ID\": 40,\n                \"Name\": \"Increased thirst\"\n            },\n            {\n                \"ID\": 73,\n                \"Name\": \"Itching eyes\"\n            },\n            {\n                \"ID\": 96,\n                \"Name\": \"Itching in the nose\"\n            },\n            {\n                \"ID\": 35,\n                \"Name\": \"Lip swelling\"\n            },\n            {\n                \"ID\": 235,\n                \"Name\": \"Memory gap\"\n            },\n            {\n                \"ID\": 112,\n                \"Name\": \"Menstruation disorder\"\n            },\n            {\n                \"ID\": 123,\n                \"Name\": \"Missed period\"\n            },\n            {\n                \"ID\": 44,\n                \"Name\": \"Nausea\"\n            },\n            {\n                \"ID\": 136,\n                \"Name\": \"Neck pain\"\n            },\n            {\n                \"ID\": 114,\n                \"Name\": \"Nervousness\"\n            },\n            {\n                \"ID\": 133,\n                \"Name\": \"Night cough\"\n            },\n            {\n                \"ID\": 12,\n                \"Name\": \"Pain in the limbs\"\n            },\n            {\n                \"ID\": 203,\n                \"Name\": \"Pain on swallowing\"\n            },\n            {\n                \"ID\": 37,\n                \"Name\": \"Palpitations\"\n            },\n            {\n                \"ID\": 140,\n                \"Name\": \"Paralysis\"\n            },\n            {\n                \"ID\": 54,\n                \"Name\": \"Reduced appetite\"\n            },\n            {\n                \"ID\": 14,\n                \"Name\": \"Runny nose\"\n            },\n            {\n                \"ID\": 29,\n                \"Name\": \"Shortness of breath\"\n            },\n            {\n                \"ID\": 124,\n                \"Name\": \"Skin rash\"\n            },\n            {\n                \"ID\": 52,\n                \"Name\": \"Sleeplessness\"\n            },\n            {\n                \"ID\": 95,\n                \"Name\": \"Sneezing\"\n            },\n            {\n                \"ID\": 13,\n                \"Name\": \"Sore throat\"\n            },\n            {\n                \"ID\": 64,\n                \"Name\": \"Sputum\"\n            },\n            {\n                \"ID\": 179,\n                \"Name\": \"Stomach burning\"\n            },\n            {\n                \"ID\": 28,\n                \"Name\": \"Stuffy nose\"\n            },\n            {\n                \"ID\": 138,\n                \"Name\": \"Sweating\"\n            },\n            {\n                \"ID\": 248,\n                \"Name\": \"Swollen glands in the armpits\"\n            },\n            {\n                \"ID\": 169,\n                \"Name\": \"Swollen glands on the neck\"\n            },\n            {\n                \"ID\": 211,\n                \"Name\": \"Tears\"\n            },\n            {\n                \"ID\": 16,\n                \"Name\": \"Tiredness\"\n            },\n            {\n                \"ID\": 115,\n                \"Name\": \"Tremor at rest\"\n            },\n            {\n                \"ID\": 144,\n                \"Name\": \"Unconsciousness, short\"\n            },\n            {\n                \"ID\": 101,\n                \"Name\": \"Vomiting\"\n            },\n            {\n                \"ID\": 181,\n                \"Name\": \"Vomiting blood\"\n            },\n            {\n                \"ID\": 56,\n                \"Name\": \"weakness\"\n            },\n            {\n                \"ID\": 23,\n                \"Name\": \"Weight gain\"\n            },\n            {\n                \"ID\": 30,\n                \"Name\": \"Wheezing\"\n            }\n        ],\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Symptoms\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getIssues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getIssues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getIssues"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getIssues",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getIssues",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getIssues"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 06:48:16 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": [\n            {\n                \"ID\": 170,\n                \"Name\": \"Abortion\"\n            },\n            {\n                \"ID\": 509,\n                \"Name\": \"Accumulation of fluid in the scrotum\"\n            },\n            {\n                \"ID\": 113,\n                \"Name\": \"Acute inflammation of lung\"\n            },\n            {\n                \"ID\": 495,\n                \"Name\": \"Bloated belly\"\n            },\n            {\n                \"ID\": 211,\n                \"Name\": \"Chronic tiredness syndrome\"\n            },\n            {\n                \"ID\": 80,\n                \"Name\": \"Cold\"\n            },\n            {\n                \"ID\": 53,\n                \"Name\": \"Constipation\"\n            },\n            {\n                \"ID\": 86,\n                \"Name\": \"Coronary heart disease\"\n            },\n            {\n                \"ID\": 47,\n                \"Name\": \"Depression\"\n            },\n            {\n                \"ID\": 266,\n                \"Name\": \"Disturbed testicular descent\"\n            },\n            {\n                \"ID\": 431,\n                \"Name\": \"Drug side effect\"\n            },\n            {\n                \"ID\": 237,\n                \"Name\": \"Erection problems\"\n            },\n            {\n                \"ID\": 181,\n                \"Name\": \"Excessive feeling of fear\"\n            },\n            {\n                \"ID\": 11,\n                \"Name\": \"Flu\"\n            },\n            {\n                \"ID\": 281,\n                \"Name\": \"Food poisoning\"\n            },\n            {\n                \"ID\": 107,\n                \"Name\": \"German measles\"\n            },\n            {\n                \"ID\": 104,\n                \"Name\": \"Headache\"\n            },\n            {\n                \"ID\": 87,\n                \"Name\": \"Heart attack\"\n            },\n            {\n                \"ID\": 434,\n                \"Name\": \"Heart racing\"\n            },\n            {\n                \"ID\": 130,\n                \"Name\": \"Hernia\"\n            },\n            {\n                \"ID\": 209,\n                \"Name\": \"Huntington's disease\"\n            },\n            {\n                \"ID\": 15,\n                \"Name\": \"Hypersensitivity reaction\"\n            },\n            {\n                \"ID\": 83,\n                \"Name\": \"Inflammation of the brain covering membranes\"\n            },\n            {\n                \"ID\": 235,\n                \"Name\": \"Inflammation of the epididymis\"\n            },\n            {\n                \"ID\": 44,\n                \"Name\": \"Inflammation of the nose and throat\"\n            },\n            {\n                \"ID\": 504,\n                \"Name\": \"Inflammation of the prostate\"\n            },\n            {\n                \"ID\": 331,\n                \"Name\": \"Inflammation of the testes\"\n            },\n            {\n                \"ID\": 131,\n                \"Name\": \"Joint infection\"\n            },\n            {\n                \"ID\": 324,\n                \"Name\": \"Kidney stones\"\n            },\n            {\n                \"ID\": 109,\n                \"Name\": \"Kissing disease\"\n            },\n            {\n                \"ID\": 166,\n                \"Name\": \"Listeria infection\"\n            },\n            {\n                \"ID\": 51,\n                \"Name\": \"Loose watery stools\"\n            },\n            {\n                \"ID\": 79,\n                \"Name\": \"Lyme disease\"\n            },\n            {\n                \"ID\": 357,\n                \"Name\": \"Malignant prostate cancer\"\n            },\n            {\n                \"ID\": 50,\n                \"Name\": \"Menopause\"\n            },\n            {\n                \"ID\": 489,\n                \"Name\": \"Menstrual cramps\"\n            },\n            {\n                \"ID\": 347,\n                \"Name\": \"Narrowing of foreskin\"\n            },\n            {\n                \"ID\": 167,\n                \"Name\": \"Obstruction of a pulmonary artery\"\n            },\n            {\n                \"ID\": 446,\n                \"Name\": \"Pregnancy\"\n            },\n            {\n                \"ID\": 18,\n                \"Name\": \"Reflux disease\"\n            },\n            {\n                \"ID\": 376,\n                \"Name\": \"Scarlet fever\"\n            },\n            {\n                \"ID\": 68,\n                \"Name\": \"Shaking palsy\"\n            },\n            {\n                \"ID\": 67,\n                \"Name\": \"Sick headache\"\n            },\n            {\n                \"ID\": 103,\n                \"Name\": \"Slipped disc\"\n            },\n            {\n                \"ID\": 19,\n                \"Name\": \"Smoking\"\n            },\n            {\n                \"ID\": 510,\n                \"Name\": \"Sperm cyst\"\n            },\n            {\n                \"ID\": 476,\n                \"Name\": \"Stomach bleeding\"\n            },\n            {\n                \"ID\": 488,\n                \"Name\": \"Strain of the back muscles\"\n            },\n            {\n                \"ID\": 151,\n                \"Name\": \"Torsion of testes\"\n            },\n            {\n                \"ID\": 497,\n                \"Name\": \"Tubal and ovarian inflammation\"\n            },\n            {\n                \"ID\": 59,\n                \"Name\": \"Urinary tract infection\"\n            }\n        ],\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Issues\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getIssue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getIssue?issueId=53",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getIssue"
+					],
+					"query": [
+						{
+							"key": "issueId",
+							"value": "53",
+							"description": "to get issue ids run getIssues api"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getIssue",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getIssue?issueId=53",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getIssue"
+							],
+							"query": [
+								{
+									"key": "issueId",
+									"value": "53",
+									"description": "to get issue ids run getIssues api"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:18:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": [\n            {\n                \"Description\": \"Constipation is when bowel movements are infrequent and difficult and happen fewer than three times a week.\",\n                \"DescriptionShort\": \"Constipation is when bowel movements are infrequent and difficult and happen fewer than three times a week.  Constipation can be caused by several reasons.\",\n                \"MedicalCondition\": \"Possible causes for constipation are bad eating habits, dehydration, medication, lack of exercise, and various systemic illnesses.  The most common cause is insufficient nutrition.  Patients complain of feeling full, stomach aches, and difficult bowel movements that expel only a bit of matter.\",\n                \"Name\": \"Constipation\",\n                \"PossibleSymptoms\": \"Abdominal pain,Early satiety,Weight gain\",\n                \"ProfName\": \"Obstipation\",\n                \"Synonyms\": \"Infrequent bowel movements,Difficult bowel movements\",\n                \"TreatmentDescription\": \"It’s usually enough to treat constipation by making changes to the diet, such as the addition of foods rich in fiber (whole grain products, legumes, vegetables, cereals, fruit, and nuts) and sufficient hydration.  Furthermore, the affected person should make a habit of getting regular exercise and using the toilet (1-2 times a day after main meals).  If these measures do not provide any relief, then a doctor can prescribe supplement fibers and controlled laxatives.\"\n            }\n        ],\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Issues\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getDiagnosis",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getDiagnosis?symptomId=10&age=2000&gender=female",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getDiagnosis"
+					],
+					"query": [
+						{
+							"key": "symptomId",
+							"value": "10",
+							"description": "to get symptom Id's run getSymptoms api"
+						},
+						{
+							"key": "age",
+							"value": "2000",
+							"description": "year of birth "
+						},
+						{
+							"key": "gender",
+							"value": "female",
+							"description": "options are female & male"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getDiagnosis",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getDiagnosis?symptomId=10&age=2000&gender=female",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getDiagnosis"
+							],
+							"query": [
+								{
+									"key": "symptomId",
+									"value": "10",
+									"description": "to get symptom Id's run getSymptoms api"
+								},
+								{
+									"key": "age",
+									"value": "2000",
+									"description": "year of birth "
+								},
+								{
+									"key": "gender",
+									"value": "female",
+									"description": "options are female & male"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 06:53:20 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": null,\n        \"diagnosis\": [\n            {\n                \"Issue\": {\n                    \"ID\": \"495\",\n                    \"Name\": \"Bloated belly\",\n                    \"Accuracy\": \"90\",\n                    \"Icd\": \"R14\",\n                    \"IcdName\": \"Flatulence and related conditions\",\n                    \"ProfName\": \"Meteorism\",\n                    \"Ranking\": \"1\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"53\",\n                    \"Name\": \"Constipation\",\n                    \"Accuracy\": \"45\",\n                    \"Icd\": \"K59.0\",\n                    \"IcdName\": \"Constipation\",\n                    \"ProfName\": \"Obstipation\",\n                    \"Ranking\": \"2\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"14\",\n                        \"Name\": \"Gastroenterology\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"19\",\n                        \"Name\": \"Internal medicine\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"281\",\n                    \"Name\": \"Food poisoning\",\n                    \"Accuracy\": \"33.75\",\n                    \"Icd\": \"A05;A02;A03;A04\",\n                    \"IcdName\": \"Other bacterial foodborne intoxications, not elsewhere classified;Other salmonella infections;Shigellosis;Other bacterial intestinal infections\",\n                    \"ProfName\": \"Foodborne illness\",\n                    \"Ranking\": \"3\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"19\",\n                        \"Name\": \"Internal medicine\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"51\",\n                    \"Name\": \"Loose watery stools\",\n                    \"Accuracy\": \"22.5\",\n                    \"Icd\": \"A09;K59.1;K52.9\",\n                    \"IcdName\": \"Other gastroenteritis and colitis of infectious and unspecified origin;Functional diarrhoea;Noninfective gastroenteritis and colitis, unspecified\",\n                    \"ProfName\": \"Diarrhea\",\n                    \"Ranking\": \"4\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"14\",\n                        \"Name\": \"Gastroenterology\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"19\",\n                        \"Name\": \"Internal medicine\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"489\",\n                    \"Name\": \"Menstrual cramps\",\n                    \"Accuracy\": \"22.5\",\n                    \"Icd\": \"N94.4;N94.5;N94.6\",\n                    \"IcdName\": \"Primary dysmenorrhoea;Secondary dysmenorrhoea;Dysmenorrhoea, unspecified\",\n                    \"ProfName\": \"Dysmenorrhoea\",\n                    \"Ranking\": \"5\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"18\",\n                        \"Name\": \"Gynecology\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"324\",\n                    \"Name\": \"Kidney stones\",\n                    \"Accuracy\": \"9.99\",\n                    \"Icd\": \"N20\",\n                    \"IcdName\": \"Calculus of kidney and ureter\",\n                    \"ProfName\": \"Nephrolith\",\n                    \"Ranking\": \"6\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"42\",\n                        \"Name\": \"Urology\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"59\",\n                    \"Name\": \"Urinary tract infection\",\n                    \"Accuracy\": \"9.28125\",\n                    \"Icd\": \"N39.0\",\n                    \"IcdName\": \"Urinary tract infection, site not specified\",\n                    \"ProfName\": \"Cystitis\",\n                    \"Ranking\": \"7\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"18\",\n                        \"Name\": \"Gynecology\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"19\",\n                        \"Name\": \"Internal medicine\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"130\",\n                    \"Name\": \"Hernia\",\n                    \"Accuracy\": \"9.1125\",\n                    \"Icd\": \"K40;K41;K42;K43;K44;K45;K46\",\n                    \"IcdName\": \"Inguinal hernia;Femoral hernia;Umbilical hernia;Ventral hernia;Diaphragmatic hernia;Other abdominal hernia;Unspecified abdominal hernia\",\n                    \"ProfName\": \"Abdominal hernia\",\n                    \"Ranking\": \"8\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"39\",\n                        \"Name\": \"Surgery\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"497\",\n                    \"Name\": \"Tubal and ovarian inflammation\",\n                    \"Accuracy\": \"9\",\n                    \"Icd\": \"N70;N70.0;N70.1\",\n                    \"IcdName\": \"Salpingitis and oophoritis;Acute salpingitis and oophoritis;Chronic salpingitis and oophoritis\",\n                    \"ProfName\": \"Pelvic inflammatory disease\",\n                    \"Ranking\": \"9\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"18\",\n                        \"Name\": \"Gynecology\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            }\n        ],\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Diagnosis\",\n    \"status\": 200\n}"
+				},
+				{
+					"name": "getDiagnosis more than 1 symptom",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getDiagnosis?symptomId=95,13&age=2000&gender=female",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getDiagnosis"
+							],
+							"query": [
+								{
+									"key": "symptomId",
+									"value": "95,13",
+									"description": "to get symptom Id's run getSymptoms api, this could be more than 1 "
+								},
+								{
+									"key": "age",
+									"value": "2000",
+									"description": "year of birth "
+								},
+								{
+									"key": "gender",
+									"value": "female",
+									"description": "options are female & male"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 06:56:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": null,\n        \"diagnosis\": [\n            {\n                \"Issue\": {\n                    \"ID\": \"80\",\n                    \"Name\": \"Cold\",\n                    \"Accuracy\": \"90\",\n                    \"Icd\": \"J00\",\n                    \"IcdName\": \"Acute nasopharyngitis [common cold]\",\n                    \"ProfName\": \"Common cold\",\n                    \"Ranking\": \"1\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            },\n            {\n                \"Issue\": {\n                    \"ID\": \"11\",\n                    \"Name\": \"Flu\",\n                    \"Accuracy\": \"76.7045441\",\n                    \"Icd\": \"J10;J11\",\n                    \"IcdName\": \"Influenza due to other identified influenza virus;Influenza, virus not identified\",\n                    \"ProfName\": \"Influenza\",\n                    \"Ranking\": \"2\"\n                },\n                \"Specialisation\": [\n                    {\n                        \"ID\": \"15\",\n                        \"Name\": \"General practice\",\n                        \"SpecialistID\": \"0\"\n                    },\n                    {\n                        \"ID\": \"19\",\n                        \"Name\": \"Internal medicine\",\n                        \"SpecialistID\": \"0\"\n                    }\n                ]\n            }\n        ],\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Diagnosis\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getSpecialisations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getSpecialisations?symptomsId=104,238&age=1980&gender=female",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getSpecialisations"
+					],
+					"query": [
+						{
+							"key": "symptomsId",
+							"value": "104,238",
+							"description": "to get symptom id run getSymptoms api"
+						},
+						{
+							"key": "age",
+							"value": "1980"
+						},
+						{
+							"key": "gender",
+							"value": "female"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getSpecialisations",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getSpecialisations?symptomsId=104,238&age=1980&gender=female",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getSpecialisations"
+							],
+							"query": [
+								{
+									"key": "symptomsId",
+									"value": "104,238",
+									"description": "to get symptom id run getSymptoms api"
+								},
+								{
+									"key": "age",
+									"value": "1980"
+								},
+								{
+									"key": "gender",
+									"value": "female"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:17:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": null,\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": [\n            {\n                \"ID\": \"15\",\n                \"Name\": \"General practice\",\n                \"Accuracy\": \"90\",\n                \"Ranking\": \"0\"\n            },\n            {\n                \"ID\": \"36\",\n                \"Name\": \"Psychiatry\",\n                \"Accuracy\": \"90\",\n                \"Ranking\": \"0\"\n            }\n        ],\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Proposed Symptoms\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getProposedSymptoms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getProposedSymptoms?symptomId=104,238&age=1980&gender=male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getProposedSymptoms"
+					],
+					"query": [
+						{
+							"key": "symptomId",
+							"value": "104,238"
+						},
+						{
+							"key": "age",
+							"value": "1980"
+						},
+						{
+							"key": "gender",
+							"value": "male"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getProposedSymptoms",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getProposedSymptoms?symptomId=104,238&age=1980&gender=male",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getProposedSymptoms"
+							],
+							"query": [
+								{
+									"key": "symptomId",
+									"value": "104,238"
+								},
+								{
+									"key": "age",
+									"value": "1980"
+								},
+								{
+									"key": "gender",
+									"value": "male"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:08:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": [\n            {\n                \"ID\": 54,\n                \"Name\": \"Reduced appetite\"\n            },\n            {\n                \"ID\": 52,\n                \"Name\": \"Sleeplessness\"\n            },\n            {\n                \"ID\": 16,\n                \"Name\": \"Tiredness\"\n            },\n            {\n                \"ID\": 23,\n                \"Name\": \"Weight gain\"\n            },\n            {\n                \"ID\": 9,\n                \"Name\": \"Headache\"\n            }\n        ],\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Proposed Symptoms\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getBodyLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getBodyLocation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getBodyLocation"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getBodyLocation",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getBodyLocation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getBodyLocation"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:09:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": [\n            {\n                \"ID\": 16,\n                \"Name\": \"Abdomen, pelvis & buttocks\"\n            },\n            {\n                \"ID\": 7,\n                \"Name\": \"Arms & shoulder\"\n            },\n            {\n                \"ID\": 15,\n                \"Name\": \"Chest & back\"\n            },\n            {\n                \"ID\": 6,\n                \"Name\": \"Head, throat & neck\"\n            },\n            {\n                \"ID\": 10,\n                \"Name\": \"Legs\"\n            },\n            {\n                \"ID\": 17,\n                \"Name\": \"Skin, joints & general\"\n            }\n        ],\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Body Locations\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getBodyLocations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getBodyLocations?bodyLocationId=16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getBodyLocations"
+					],
+					"query": [
+						{
+							"key": "bodyLocationId",
+							"value": "16",
+							"description": "to get bodyLocation id run getBodyLocation api"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getBodyLocations",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getBodyLocations?bodyLocationId=16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getBodyLocations"
+							],
+							"query": [
+								{
+									"key": "bodyLocationId",
+									"value": "16",
+									"description": "to get bodyLocation id run getBodyLocation api"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:11:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": {\n        \"resultObjectList\": [\n            {\n                \"ID\": 36,\n                \"Name\": \"Abdomen\"\n            },\n            {\n                \"ID\": 40,\n                \"Name\": \"Buttocks & rectum\"\n            },\n            {\n                \"ID\": 38,\n                \"Name\": \"Genitals & groin\"\n            },\n            {\n                \"ID\": 39,\n                \"Name\": \"Hips & hip joint\"\n            },\n            {\n                \"ID\": 37,\n                \"Name\": \"Pelvis\"\n            }\n        ],\n        \"issueDescription\": null,\n        \"diagnosis\": null,\n        \"specialist\": null,\n        \"bodySymptoms\": null\n    },\n    \"message\": \"Body Locations\",\n    \"status\": 200\n}"
+				}
+			]
+		},
+		{
+			"name": "getRedFlag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/getRedFlag?symptomId=31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"getRedFlag"
+					],
+					"query": [
+						{
+							"key": "symptomId",
+							"value": "31"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getRedFlag",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/getRedFlag?symptomId=31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"getRedFlag"
+							],
+							"query": [
+								{
+									"key": "symptomId",
+									"value": "31"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Apr 2024 07:15:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"response\": \"\\\"You have selected a symptom which requires a prompt check with a medical doctor.\\\"\",\n    \"message\": null,\n    \"status\": 200\n}"
+				}
+			]
+		}
+	]
+}

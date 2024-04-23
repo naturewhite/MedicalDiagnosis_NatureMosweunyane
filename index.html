@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Diagnosis</title>
+	<style>
+        /* Style for the container holding the symptoms list and diagnosis results */
+        #content-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        /* Style for the left and right sections */
+        #left-section, #right-section {
+            width: 48%; /* Set width for each section */
+            border: 1px solid black;
+            padding: 10px;
+        }
+		/*check box
+		#symptomsList  {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+			justify-content: flex-start;
+        }
+		symptomsList li {
+            flex-basis: calc(50% - 20px); /* Set width for each checkbox item (2 per row) */
+           /* margin-right: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style for checkboxes */
+        /*#symptomsList input[type="checkbox"] {
+            margin-right: 10px;
+        }*/
+		 #checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 10px; /* Adjust the gap between checkboxes */
+            margin-top: 10px;
+        }
+
+        /* Style for individual checkboxes */
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+	
+</head>
+<body>
+    <h1>Medical Diagnosis</h1>
+    <h2>Welcome to Medical Diagnosis Application</h2>
+	<p>Do you have any symptoms/issues that you would like the MDA to Diagnos?</p>
+	<p>Click Symptoms to get the list of symptoms to select from or Issues</p>
+	
+	
+	
+	
+	<button onclick="fetchSymptoms()">Get Symptoms</button>
+	<button onclick="fetchIssues()">Get Issues</button>
+	<button onclick="fetchBodyLocation()">Find body Issues </button>
+	
+	
+	 <div id="checkbox-container">
+	 
+	   <div class="checkbox-item">
+        <label for="age">Age</label>
+        <input type="text" id="age" placeholder="e.g 1995">
+		</div>
+		
+        <div class="checkbox-item">
+            <input type="checkbox" id="femaleCheckbox" value="female">
+            <label for="femaleCheckbox">Female</label>
+        </div>
+
+        <div class="checkbox-item">
+            <input type="checkbox" id="maleCheckbox" value="male">
+            <label for="maleCheckbox">Male</label>
+        </div>
+        
+		
+    </div>
+	 
+	</div>
+
+	  <div id="content-container">
+        <!-- Left section for symptoms list -->
+        <div id="left-section">
+		 <div id="inputContainer">
+         </div>
+            <h3>Symptoms</h3>
+            <ul id="symptomsList"></ul>
+			
+        </div>
+
+        <!-- Right section for diagnosis results -->
+        <div id="right-section">
+            <h3>Results</h3>
+            <div id="diagnosisResult"></div>
+        </div>
+    </div>
+	
+     <script>
+    let selectedSymptomIds = [];
+    let selectedIssue = '';
+	
+    function fetchSymptoms() {
+        fetch('http://localhost:8000/api/v1/getSymptoms')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.response && data.response.resultObjectList && Array.isArray(data.response.resultObjectList)) {
+                const symptomsList = document.getElementById('symptomsList');
+                symptomsList.innerHTML = ''; // Clear previous items
+
+                data.response.resultObjectList.forEach(symptom => {
+                    const li = document.createElement('li');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'symptom_' + symptom.ID;
+                    checkbox.value = symptom.ID;
+                    checkbox.name = 'symptoms';
+
+                    // Add event listener to capture selected symptoms
+                    checkbox.addEventListener('change', () => {
+                        if (checkbox.checked) {
+                            selectedSymptomIds.push(symptom.ID);
+                        } else {
+                            const index = selectedSymptomIds.indexOf(symptom.ID);
+                            if (index !== -1) {
+                                selectedSymptomIds.splice(index, 1);
+                            }
+                        }
+                    });
+
+                    const label = document.createElement('label');
+                    label.htmlFor = 'symptom_' + symptom.ID;
+                    label.textContent = symptom.Name;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(label);
+                    symptomsList.appendChild(li);
+                });
+
+                const submitButton = document.createElement('button');
+                submitButton.textContent = 'Submit';
+                submitButton.addEventListener('click', () => {
+                    if (selectedSymptomIds.length === 0) {
+                        alert('Please select symptoms.');
+                        return;
+                    }
+					
+                    const selectedSymptomIdsStr = selectedSymptomIds.join(',');
+					
+					const ageInput = document.getElementById('age');
+                    const age = ageInput.value;
+
+                    const femaleCheckbox = document.getElementById('femaleCheckbox');
+                    const maleCheckbox = document.getElementById('maleCheckbox');
+
+                    let gender = '';
+                    if (femaleCheckbox.checked) {
+                       gender = 'female';
+                    } else if (maleCheckbox.checked) {
+                      gender = 'male';
+                    }
+					
+					
+                    const apiUrl = 'http://localhost:8000/api/v1/getDiagnosis?symptomId='+selectedSymptomIds+'&age='+age+'&gender='+gender;
+
+                    fetch(apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        const diagnosisResult = document.getElementById('diagnosisResult');
+                        diagnosisResult.innerHTML = ''; // Clear previous diagnosis results
+
+                        if (data && data.response && data.response.diagnosis && Array.isArray(data.response.diagnosis)) {
+                            data.response.diagnosis.forEach(issue => {
+							const issueName = issue.Issue.Name;
+							const accuracy = issue.Issue.Accuracy;
+							
+                                const p = document.createElement('p');
+                                p.textContent = `${issueName} (Accuracy: ${accuracy}%)`;
+                                diagnosisResult.appendChild(p);
+                            });
+                        } else {
+                            console.error('Invalid diagnosis API response:', data);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error submitting symptoms:', error);
+                    });
+					
+                });
+
+                symptomsList.appendChild(submitButton);
+            } else {
+                console.error('Invalid API response:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching symptoms data:', error);
+        });
+    }
+
+    function fetchIssues() {
+		
+        fetch('http://localhost:8000/api/v1/getIssues')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.response && data.response.resultObjectList && Array.isArray(data.response.resultObjectList)) {
+                const symptomsList = document.getElementById('symptomsList');
+                symptomsList.innerHTML = ''; // Clear previous items
+
+                data.response.resultObjectList.forEach(symptom => {
+                    const li = document.createElement('li');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'symptom_' + symptom.ID;
+                    checkbox.value = symptom.ID;
+                    checkbox.name = 'symptoms';
+					
+					 // Add event listener to capture selected symptoms
+                    checkbox.addEventListener('change', () => {
+                        if (checkbox.checked) {
+                            selectedIssue = symptom.ID;
+                        } 
+                    });
+
+                    const label = document.createElement('label');
+                    label.htmlFor = 'symptom_' + symptom.ID;
+                    label.textContent = symptom.Name;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(label);
+                    symptomsList.appendChild(li);
+                });
+				const submitButton = document.createElement('button');
+				 submitButton.textContent = 'Submit Symptoms';
+				 submitButton.addEventListener('click',() =>{
+				 
+				 if(selectedIssue.length==0){
+				 alert('Please Select Symptoms');
+				 return;
+				 }
+				 
+				
+				 const apiUrl = 'http://localhost:8000/api/v1/getIssue?issueId='+selectedIssue;
+				 
+				 fetch(apiUrl)
+				      .then(response => response.json())
+					  .then(data => {
+					   console.log(data);
+					   
+					   
+					   
+					   if (data && data.response && data.response.issueDescription && Array.isArray(data.response.issueDescription)) {
+						   const diagnosisResult = document.getElementById('diagnosisResult');
+					       diagnosisResult.innerHTML = '';
+					     
+						    data.response.issueDescription.forEach(issue => {
+								const name = issue.Name;
+                                const description = issue.Description;
+								const descriptionShort = issue.DescriptionShort;
+								const medicalCondition = issue.MedicalCondition
+								const possibleSymptoms = issue.PossibleSymptoms;
+								const treatmentDescription = issue.TreatmentDescription;
+								
+								
+								
+						  const pName = document.createElement('p');
+						  pName.textContent = `Name:${name}`;
+						  diagnosisResult.appendChild(pName);
+						  
+						  const pDescription = document.createElement('p');
+						  pDescription.textContent = `Description: ${description}`;
+						  diagnosisResult.appendChild(pDescription);
+						  
+						  const pDescriptionShort = document.createElement('p');
+						  pDescriptionShort.textContent = `Short Description: ${descriptionShort}`;
+						  diagnosisResult.appendChild(pDescriptionShort);
+						  
+						  const pMedicalCondition = document.createElement('p');
+						  pMedicalCondition.textContent = `Medical Condition: ${medicalCondition}`;
+						  diagnosisResult.appendChild(pMedicalCondition);
+						  
+						  const pPossibleSymptoms = document.createElement('p');
+						  if(possibleSymptoms ==null){
+							   pPossibleSymptoms.textContent = 'Possible Symptoms: None'
+						  }
+						  else{
+						  pPossibleSymptoms.textContent = `Possible Symptoms: ${possibleSymptoms}`;
+						  }
+						  diagnosisResult.appendChild(pPossibleSymptoms);
+						  
+						  const pTreatment = document.createElement('p');
+						  pTreatment.textContent = `Treatment Description: ${treatmentDescription}`;
+						  diagnosisResult.appendChild(pTreatment);
+					   
+					   });
+					   
+					   }
+					   
+					  })
+					  .catch(error =>{
+					  console.error('Error submitting symptoms ', error);
+					  });
+				 
+				 });
+				 symptomsList.appendChild(submitButton);
+				
+            } else {
+                console.error('Invalid API response:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching issues data:', error);
+        });
+    }
+
+
+function fetchBodyLocation() {
+    fetch('http://localhost:8000/api/v1/getBodyLocation')
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.response && data.response.resultObjectList && Array.isArray(data.response.resultObjectList)) {
+                const symptomsList = document.getElementById('symptomsList');
+                symptomsList.innerHTML = ''; // Clear previous items
+
+                data.response.resultObjectList.forEach(symptom => {
+                    const li = document.createElement('li');
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'symptom_' + symptom.ID;
+                    checkbox.value = symptom.ID;
+                    checkbox.name = 'symptoms';
+
+                    // Add event listener to capture selected symptoms
+                    checkbox.addEventListener('change', () => {
+                        if (checkbox.checked) {
+                            selectedIssue = symptom.ID;
+                        }
+                    });
+
+                    const label = document.createElement('label');
+                    label.htmlFor = 'symptom_' + symptom.ID;
+                    label.textContent = symptom.Name;
+
+                    li.appendChild(checkbox);
+                    li.appendChild(label);
+                    symptomsList.appendChild(li);
+                });
+
+                const submitButton = document.createElement('button');
+                submitButton.textContent = 'Submit';
+                submitButton.addEventListener('click', () => {
+                    if (selectedIssue.length === 0) {
+                        alert('Please select a body part.');
+                        return;
+                    }
+
+                    const ageInput = document.getElementById('age');
+                    const age = ageInput.value;
+
+                    const femaleCheckbox = document.getElementById('femaleCheckbox');
+                    const maleCheckbox = document.getElementById('maleCheckbox');
+
+                    let gender = '';
+                    if (femaleCheckbox.checked) {
+                        gender = 'female';
+                    } else if (maleCheckbox.checked) {
+                        gender = 'male';
+                    }
+
+                    const apiUrl = 'http://localhost:8000/api/v1//getBodyLocations?bodyLocationId=' + selectedIssue;
+
+                    fetch(apiUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            const diagnosisResult = document.getElementById('diagnosisResult');
+                            diagnosisResult.innerHTML = '';
+
+                            if (data && data.response && data.response.resultObjectList && Array.isArray(data.response.resultObjectList)) {
+                                data.response.resultObjectList.forEach(body => {
+                                    const li = document.createElement('li');
+
+                                    const checkbox = document.createElement('input');
+                                    checkbox.type = 'checkbox';
+                                    checkbox.id = 'body_' + body.ID;
+                                    checkbox.value = body.ID;
+                                    checkbox.name = 'bodyid';
+                                    
+                                    // Add event listener to capture selected body symptoms
+                                    checkbox.addEventListener('change', () => {
+                                        if (checkbox.checked) {
+                                            // Handle selected body symptom
+                                             
+											selectedIssue = body.ID;
+                                            // Trigger fetchBodySymptoms API call with selectedBodyIssue and gender parameters
+                                            
+                                        }
+                                    });
+									
+
+                                    const label = document.createElement('label');
+                                    label.htmlFor = 'body_' + body.ID;
+                                    label.textContent = body.Name;
+
+                                    li.appendChild(checkbox);
+                                    li.appendChild(label);
+                                    diagnosisResult.appendChild(li);
+                                });
+                            } else {
+                                console.error('Invalid API response:', data);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching body locations:', error);
+                        });
+						
+						fetchBodySymptoms(selectedIssue, gender);
+                });
+
+                symptomsList.appendChild(submitButton);
+            } else {
+                console.error('Invalid API response:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching body locations:', error);
+        });
+}
+
+function fetchBodySymptoms(bodyLocationId, gender) {
+	
+    const apiUrl = 'http://localhost:8000/api/v1/getBodySymptoms?bodyLocationId=' + bodyLocationId + '&genderAge=' + gender;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const diagnosisResult = document.getElementById('diagnosisResult');
+            diagnosisResult.innerHTML = '';
+
+            if (data && data.response && data.response.bodySymptoms && Array.isArray(data.response.bodySymptoms)) {
+                data.response.bodySymptoms.forEach(issue => {
+                    const name = issue.Name;
+                    const hasARedFlag = issue.HasRedFlag;
+                    const profName = issue.ProfName;
+                    const synonyms = issue.Synonyms;
+
+                    const pName = document.createElement('p');
+                    pName.textContent = `Name: ${name}`;
+                    diagnosisResult.appendChild(pName);
+					
+					const pDescription = document.createElement('p');
+					pDescription.textContent = `Red Flag: ${hasARedFlag}`;
+					diagnosisResult.appendChild(pDescription);
+
+					const pProfName = document.createElement('p');
+					pProfName.textContent = `Prof Name: ${profName}`;
+					diagnosisResult.appendChild(pProfName);
+
+					const pSynonyms = document.createElement('p');
+					pSynonyms.textContent = `Synonyms: ${synonyms}`;
+					diagnosisResult.appendChild(pSynonyms);
+				
+					
+
+                    // Create and append other symptom details as needed
+                });
+            } else {
+                console.error('Invalid API response:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching body symptoms:', error);
+        });
+}
+
+
+
+</script>
+
+   
+       
+</body>
+</html>

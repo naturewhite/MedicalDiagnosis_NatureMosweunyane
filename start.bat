@@ -1,0 +1,1 @@
+start cmd /c java -jar  MedicalDiagnosis-0.0.1-SNAPSHOT.jar -DmainClass=com.medical.MedicalDiagnosisApplication --spring.profiles.active=application.properties  --oauth.enabled=false
